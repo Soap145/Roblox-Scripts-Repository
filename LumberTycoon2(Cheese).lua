@@ -18,19 +18,16 @@ end
 
 --TABS
 local PlayerTab = Window:NewTab("Player")
-local SlotTab = Window:NewTab("Slot")
+local SlotTab = Window:NewTab("Dupe")
+local CameraTab = Window:NewTab("Camera")
 --TAB[SLOT]STUFF
 local SlotToLoad = -1
 local CurrentSlot = game.Players.LocalPlayer.CurrentSaveSlot.Value
 local SlotLoad = SlotTab:NewSection("Slot Load/Save")
+local CameraSection = CameraTab:NewSection("Camera")
 local test1 = false
-function InstantReload(  )
-    game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(CurrentSlot) return
-end
-while test1 do
-    InstantReload()
-    test1 = false
-end
+
+
 SlotLoad:NewDropdown("Slot", "The slot you want to load", {"Slot 1", "Slot 2", "Slot 3", "Slot 4", "Slot 5", "Slot 6"}, function(currentOption)
     if currentOption == "Slot 1" then
         SlotToLoad = 1
@@ -67,14 +64,37 @@ SlotLoad:NewButton("Save Slot", "Saves your slot", function()
     end
 end)
 
+ca:NewButton("", "Saves your slot", function()
+    if CurrentSlot == -1 then
+        Notify("Please load Your Slot In Order To Save", 5)
+    else
+        game.ReplicatedStorage.LoadSaveRequests.RequestSave:InvokeServer(SlotToLoad)
+        Notify("Saved Slot", 5)
+    end
+end)
+
+
 SlotLoad:NewButton("test axe dupe", "beta", function()
    -- InstantReload()
-   test1 = true
-    print('it works')
+
     game.Workspace[game.Players.LocalPlayer.Name].Humanoid.Health = 0
-   -- game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(SlotToLoad)
+    game.ReplicatedStorage.LoadSaveRequests.RequestLoad:InvokeServer(6)
 
 end)
+
+
+SlotLoad:NewButton("count sussy axes idk know", "beta", function()
+    local amount = 0
+
+
+    for _, item in pairs(game.Players.LocalPlayer.ToolFolder:GetChildren()) do
+        amount = amount + 1
+    end
+
+    Notify("You Have "..amount.." Axes In Your Backpack")
+ 
+ end)
+ 
 
 
 
