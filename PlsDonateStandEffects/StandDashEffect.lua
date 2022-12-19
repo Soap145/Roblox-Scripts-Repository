@@ -1,4 +1,6 @@
 local EffectName = "StandDashEffect"
+local v18 = game:GetService("TweenService")
+local v31 = game:GetService("Players").LocalPlayer
 local Effect = {
     "DONATE",
     "-ONATE",
