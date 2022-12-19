@@ -61,7 +61,7 @@ while true do
                 return
             end
             ChangeStandText(v)
-            wait(0.3)
+            wait(1)
         end
     else
         wait()

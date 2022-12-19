@@ -11,6 +11,7 @@ local Admin = Window:NewTab("Admin")
 local SecretItems = Window:NewTab("Secret Items")
 local Visual = Window:NewTab("Visual")
 local Booth = Window:NewTab("Booth")
+local StandEffects = Window:NewTab("Booth Effects")
 local CustomScripts = Window:NewTab("Custom Scripts")
 local Gui = Window:NewTab("Gui")
 --sections
@@ -62,7 +63,14 @@ for _, v in pairs(AllStandEffects) do
     Enabled.Parent = Folder   
     Enabled.Value = false 
 
+    local NewSection = StandEffects:NewSection(v)
+
+    NewSection:NewToggle("Toggle", "Enable the stand effect", function(state)
+        Enabled.Value = state
+    end)
     
+
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/Soap145/Roblox-Scripts-Repository/main/PlsDonateStandEffects/"..v..".lua",true))()
 end
 
 local v18 = game:GetService("TweenService")
