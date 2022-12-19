@@ -55,6 +55,8 @@ local AllStandEffects = {
 }
 
 
+
+
 local LuaFolder = Instance.new("Folder")
 LuaFolder.Name = "PlsDonateGuiSettings"
 LuaFolder.Parent = game.Workspace
@@ -75,8 +77,13 @@ for _, v in pairs(AllStandEffects) do
         Enabled.Value = state
     end)
     
+    
+    
 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Soap145/Roblox-Scripts-Repository/main/PlsDonateStandEffects/"..v..".lua",true))()
+
+
+
+    
 end
 
 local v18 = game:GetService("TweenService")
@@ -200,9 +207,7 @@ function newbutton (imageid)
     button.Name = "GUI"
 end
 
-function loadscript(script)
-    loadstring(game:HttpGet(script))()
-end
+
 
 function Awardbadge(badgeid)
     BadgeService:AwardBadge(game.Players.LocalPlayer.UserId, badgeid)
