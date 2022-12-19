@@ -1,4 +1,4 @@
-local EffectName = "StandDashEffect"
+local EffectName = "DonateDashEffect"
 local Effect = {
     "DONATE",
     "-ONATE",

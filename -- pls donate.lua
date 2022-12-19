@@ -43,9 +43,15 @@ local badgestatus = ""
 
 local changetxt = ""
 
+for _, v in pairs(Workspace:GetChildren()) do
+    if v.Name == "PlsDonateGuiSettings" then
+        v:Destroy()
+    end
+end
+
 
 local AllStandEffects = {
-    "StandDashEffect"
+    "DonateDashEffect"
 }
 
 
